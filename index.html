@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <form action="post" id="my-form" action="http://192.168.0.121:5000">
         <input required type="file" name="image" id="image">
         <button type="submit">Submit</button>
@@ -20,23 +21,11 @@
         event.preventDefault();
 
         // Send the form data using the fetch() function
-        // fetch('http://192.168.0.121:5000/image_verification/verify_pose', {
-        fetch('https://6273-2401-4900-630c-eb25-4005-29ef-fb0e-ba6d.in.ngrok.io/image_verification/verify_pose', {
-            method: 'post',
-            body: new FormData(event.target)
-
-        }).then(function (response) {
-            // Handle the response from the server
+        axios.post('https://6273-2401-4900-630c-eb25-4005-29ef-fb0e-ba6d.in.ngrok.io/image_verification/verify_pose', new FormData(event.target)).then(response => {
+            console.log(response.data)
             const div = document.querySelector("div")
-            div.innerText = JSON.stringify(response.json())
-            console.log(response)
-        }).catch(function (error) {
-            error.response.text().then(txt => {
-                const div = document.querySelector("div")
-                div.innerText = JSON.stringify(txt)
-                console.log(txt)
-            })
-        });
+            div.innerText = JSON.stringify(response.data)
+        })
     });
 </script>
 
