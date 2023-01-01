@@ -30,6 +30,12 @@
             const div = document.querySelector("div")
             div.innerText = JSON.stringify(response)
             console.log(response)
+        }).catch(function (error) {
+            error.response.text().then(txt => {
+                const div = document.querySelector("div")
+                div.innerText = JSON.stringify(txt)
+                console.log(txt)
+            })
         });
     });
 </script>
