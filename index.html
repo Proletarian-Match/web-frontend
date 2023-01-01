@@ -13,6 +13,7 @@
         <input required type="file" name="image" id="image">
         <button type="submit">Submit</button>
     </form>
+    <div></div>
 </body>
 <script>
     document.getElementById('my-form').addEventListener('submit', function (event) {
@@ -20,12 +21,14 @@
 
         // Send the form data using the fetch() function
         // fetch('http://192.168.0.121:5000/image_verification/verify_pose', {
-        fetch('https://5fa9-60-243-249-226.in.ngrok.io/image_verification/verify_pose', {
+        fetch('https://6273-2401-4900-630c-eb25-4005-29ef-fb0e-ba6d.in.ngrok.io/image_verification/verify_pose', {
             method: 'post',
             body: new FormData(event.target)
 
         }).then(function (response) {
             // Handle the response from the server
+            const div = document.querySelector("div")
+            div.innerText = JSON.stringify(response)
             console.log(response)
         });
     });
