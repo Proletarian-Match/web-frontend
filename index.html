@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proliterian Match</title>
+</head>
+
+<body>
+    <form action="post" id="my-form" action="http://192.168.0.121:5000">
+        <input required type="file" name="image" id="image">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script>
+    document.getElementById('my-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Send the form data using the fetch() function
+        // fetch('http://192.168.0.121:5000/image_verification/verify_pose', {
+        fetch('https://5fa9-60-243-249-226.in.ngrok.io/image_verification/verify_pose', {
+            method: 'post',
+            body: new FormData(event.target)
+
+        }).then(function (response) {
+            // Handle the response from the server
+            console.log(response)
+        });
+    });
+</script>
+
+</html>
