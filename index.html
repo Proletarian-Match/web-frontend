@@ -10,6 +10,8 @@
 
 <body>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <img id="image" height="200" width="300"
+        src="https://img.freepik.com/premium-photo/photo-young-beautiful-girl-happy-positive-smile-show-v-sign-make-selfie-isolated-yellow-color-background_525549-3699.jpg?w=2000">
     <form action="post" id="my-form" action="http://192.168.0.121:5000">
         <input required type="file" name="image" id="image">
         <button type="submit">Submit</button>
@@ -17,6 +19,7 @@
     <div></div>
 </body>
 <script>
+    // Make a GET request to the Flask route
     document.getElementById('my-form').addEventListener('submit', function (event) {
         event.preventDefault();
 
