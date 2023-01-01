@@ -28,7 +28,7 @@
         }).then(function (response) {
             // Handle the response from the server
             const div = document.querySelector("div")
-            div.innerText = JSON.stringify(response)
+            div.innerText = JSON.stringify(response.json())
             console.log(response)
         }).catch(function (error) {
             error.response.text().then(txt => {
